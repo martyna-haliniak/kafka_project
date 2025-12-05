@@ -12,6 +12,8 @@ project/
 │   └── producer/
 │        └── kafka_producer.py
 │
-└── consumer_service/
-    └── main.py
+│── consumer_service/
+│   └── main.py
+│
+└── requirements.txt
 ```
