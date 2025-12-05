@@ -15,5 +15,12 @@ project/
 │── consumer_service/
 │   └── main.py
 │
+│── scripts/
+│   └── create_topic.py         # topic creation
+│
+│── schemas/
+│    └── user_action_schema.json
+│
 └── requirements.txt
+
 ```
