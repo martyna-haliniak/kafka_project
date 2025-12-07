@@ -118,6 +118,6 @@ def health_check():
 ### 3. Start fake client in a separate terminal
 `python fake_client/send_fake_events.py`
 
-### 4. Start consumer in another terminal
-`python consumer_service/main.py`
+### 4. Start consumer in a separate terminal
+`python -m consumer_service.main`
 
