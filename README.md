@@ -61,29 +61,31 @@ Consumer
 ## Directory Structure
 ```
 project/
-│── config.py
+│── config.py                       # kafka_conf + schema_registry_conf
 │
 │── app/
-│   ├── main.py                 # FastAPI app
-│   ├── models.py               # Pydantic models
+│   ├── main.py                     # FastAPI app, runs the server
+│   ├── models.py                   # Pydantic models for request validation
 │   ├── producer/
-│   │     └── kafka_producer.py
+│   │     └── kafka_producer.py     # Functions to produce messages
 │   └── routes/
-│         └── producer_routes.py
+│         └── producer_routes.py    # FastAPI endpoints (/events, /health)
 │
 │── consumer_service/
-│   └── main.py                 # Kafka consumer
+│   ├── standard_consumer.py        # Standard Kafka consumer 
+│   └── faust_consumer.py           # Faust consumer
 │
 │── schemas/
-│   └── user_action_schema.json
+│   └── user_action_schema.json     # Kafka JSON schema
 │
 │── scripts/
-│   └── create_topic.py
+│   └── create_topic.py             # Topic creation script
 │
 │── fake_client/
-│   └── send_fake_events.py
+│   └── send_fake_events.py         # Generates fake events + posts to API
 │
 └── requirements.txt
+
 ```
 
 
