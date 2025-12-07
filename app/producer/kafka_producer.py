@@ -3,7 +3,7 @@ from confluent_kafka import Producer
 from confluent_kafka.schema_registry.json_schema import JSONSerializer
 from confluent_kafka.serialization import SerializationContext, MessageField
 from confluent_kafka.schema_registry import SchemaRegistryClient
-from config import kafka_conf, schema_registry_conf
+import config 
 
 # Topic name
 TOPIC = "events"
@@ -13,12 +13,12 @@ with open("schemas/user_action_schema.json") as f:
     schema_str = f.read()
 
 # Connect to Schema Registry
-schema_registry = SchemaRegistryClient(schema_registry_conf)
+schema_registry = SchemaRegistryClient(config.schema_registry_conf)
 serializer = JSONSerializer(schema_str, schema_registry)
 
 
 # Kafka producer
-producer = Producer(kafka_conf)
+producer = Producer(config.kafka_conf)
 
 def produce_event(event_data: dict):
     """
